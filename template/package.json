@@ -1,0 +1,51 @@
+{
+	"name": "{{ tmplr.project_name }}",
+	"version": "0.0.0",
+	"description": "{{ tmplr.project_description }}",
+	"keywords": [
+		"nodejs",
+		""
+	],
+	"license": "MIT",
+	"repository": "tommy-mitchell/{{ tmplr.project_name | skip: @tommy-mitchell/ }}",
+	"author": {
+		"name": "Tommy Mitchell",
+		"url": "https://tommymitchell.io"
+	},
+	"type": "module",
+	"exports": {
+		"default": "./dist/index.js",
+		"types": "./dist/index.d.ts"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"prepublishOnly": "tsc",
+		"test": "listr xo 'c8 ava'"
+	},
+	"devDependencies": {
+		"@tommy-mitchell/tsconfig": "^1.0.0",
+		"@types/node": "^16",
+		"ava": "^5.3.1",
+		"c8": "^8.0.0",
+		"listr-cli": "^0.3.0",
+		"tsx": "^3.12.7",
+		"typescript": "~5.1.6",
+		"xo": "^0.54.2"
+	},
+	"engines": {
+		"node": ">=16"
+	},
+	"ava": {
+		"files": [
+			"test/*.ts"
+		],
+		"extensions": {
+			"ts": "module"
+		},
+		"nodeArguments": [
+			"--loader=tsx"
+		]
+	}
+}

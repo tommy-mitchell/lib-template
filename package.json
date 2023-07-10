@@ -1,0 +1,12 @@
+{
+	"private": true,
+	"name": "@tommy-mitchell/lib-template",
+	"version": "0.0.0",
+	"description": "Personal `tmplr` template for creating Node.js libraries.",
+	"license": "MIT",
+	"repository": "tommy-mitchell/lib-template",
+	"author": {
+		"name": "Tommy Mitchell",
+		"url": "https://tommymitchell.io"
+	}
+}
