@@ -20,32 +20,42 @@
 	"files": [
 		"dist"
 	],
-	"scripts": {
-		"prepublishOnly": "tsc",
-		"test": "listr xo 'c8 ava'"
-	},
-	"devDependencies": {
-		"@tommy-mitchell/tsconfig": "^1.0.0",
-		"@types/node": "^16",
-		"ava": "^5.3.1",
-		"c8": "^8.0.0",
-		"listr-cli": "^0.3.0",
-		"tsx": "^3.12.7",
-		"typescript": "~5.1.6",
-		"xo": "^0.54.2"
-	},
 	"engines": {
-		"node": ">=16"
+		"node": ">=16.9"
+	},
+	"scripts": {
+		"prepare": "npm run build",
+		"build": "tsc -p tsconfig.build.json",
+		"lint": "xo",
+		"test": "tsc --noEmit && c8 npm run ava",
+		"ava": "cross-env NODE_OPTIONS='--loader=tsx --no-warnings=ExperimentalWarning' ava"
 	},
 	"ava": {
 		"files": [
-			"test/*.ts"
+			"test/**/*.ts",
+			"!test/_fixtures"
 		],
 		"extensions": {
 			"ts": "module"
 		},
+		"snapshotDir": "test/_snapshots",
 		"nodeArguments": [
-			"--loader=tsx"
+			"--loader=tsx",
+			"--no-warnings=ExperimentalWarning"
 		]
+	},
+	"devDependencies": {
+		"@tommy-mitchell/tsconfig": "^1.1.0",
+		"@types/common-tags": "^1.8.1",
+		"@types/node": "^16.9",
+		"ava": "^5.3.1",
+		"c8": "^8.0.1",
+		"common-tags": "^1.8.2",
+		"cross-env": "^7.0.3",
+		"tsd": "^0.28.1",
+		"tsx": "^3.12.7",
+		"type-fest": "^4.2.0",
+		"typescript": "~5.2.2",
+		"xo": "^0.56.0"
 	}
 }
