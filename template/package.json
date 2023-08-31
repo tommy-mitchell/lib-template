@@ -27,20 +27,20 @@
 		"prepare": "npm run build",
 		"build": "tsc -p tsconfig.build.json",
 		"lint": "xo",
-		"test": "tsc --noEmit && c8 npm run ava",
-		"ava": "cross-env NODE_OPTIONS='--loader=tsx --no-warnings=ExperimentalWarning' ava"
+		"test": "c8 npm run ava && tsc && tsd -t dist/index.d.ts",
+		"ava": "cross-env NODE_OPTIONS='--loader=ts-node/esm --loader=esmock --no-warnings=ExperimentalWarning' ava"
 	},
 	"ava": {
 		"files": [
 			"test/**/*.ts",
-			"!test/_fixtures"
+			"!test/_*"
 		],
 		"extensions": {
 			"ts": "module"
 		},
-		"snapshotDir": "test/_snapshots",
 		"nodeArguments": [
-			"--loader=tsx",
+			"--loader=ts-node/esm",
+			"--loader=esmock",
 			"--no-warnings=ExperimentalWarning"
 		]
 	},
@@ -52,9 +52,10 @@
 		"c8": "^8.0.1",
 		"common-tags": "^1.8.2",
 		"cross-env": "^7.0.3",
-		"tsd": "^0.28.1",
-		"tsx": "^3.12.7",
-		"type-fest": "^4.2.0",
+		"esmock": "^2.3.8",
+		"tsd": "^0.29.0",
+		"ts-node": "^10.9.1",
+		"type-fest": "^4.3.1",
 		"typescript": "~5.2.2",
 		"xo": "^0.56.0"
 	}

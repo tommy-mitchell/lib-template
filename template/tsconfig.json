@@ -1,12 +1,16 @@
 {
 	"extends": "@tommy-mitchell/tsconfig",
 	"exclude": ["node_modules", "coverage", "dist"],
-	"include": ["src", "test"],
+	"include": ["src", "test", "test-d"],
 	"compilerOptions": {
 		"noEmit": true,
 		"baseUrl": ".",
 		"paths": {
 			"~/*": ["src/*"],
 		},
+	},
+	"ts-node": {
+		"transpileOnly": true,
+		"esm": true,
 	},
 }

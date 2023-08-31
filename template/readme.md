@@ -48,4 +48,4 @@ Lorem ipsum.
 
 ## Related
 
-- []()
+- [foo](https://github.com/foo/foo) - Does foo.
