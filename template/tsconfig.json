@@ -9,8 +9,4 @@
 			"~/*": ["src/*"],
 		},
 	},
-	"ts-node": {
-		"transpileOnly": true,
-		"esm": true,
-	},
 }

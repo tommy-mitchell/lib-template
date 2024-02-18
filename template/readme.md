@@ -14,6 +14,7 @@
 ```sh
 {{ tmplr.install_yarn }}
 ```
+
 </details>
 
 ## Usage
