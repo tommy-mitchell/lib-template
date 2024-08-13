@@ -4,9 +4,5 @@
 	"include": ["src", "test", "test-d"],
 	"compilerOptions": {
 		"noEmit": true,
-		"baseUrl": ".",
-		"paths": {
-			"~/*": ["src/*"],
-		},
 	},
 }
